@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrbitalX</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./fontawesome-free-6.7.2-web/css/all.min.css" />
+</head>
+
+<body>
+<div class="stars"></div>
+<header>
+  <div class="container">
+    <i class="fa fa-bars"></i>
+    <nav>
+      <i class="fa fa-moon theme-toggle"></i>
+      <h1 class="logo">Orbital<span>X</span></h1>
+      <ul class="nav-item">
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="container hero-wrapper">
+    <div class="hero-text reveal">
+      <h1>Engineering Intelligence Beyond Earth</h1>
+      <p>
+        AI-powered orbital systems enabling autonomous,
+        real-time analytics and deep space mission intelligence.
+      </p>
+      <div class="hero-btn">
+        <button class="primary-btn">Explore Mission</button>
+        <button class="secondary-btn">View Technology</button>
+      </div>
+    </div>
+    <div class="hero-img reveal">
+      <img src="./wikiimages-earth-11015_1920.jpg" alt="Earth image" />
+    </div>
+  </div>
+</section>
+
+<section id="mission">
+  <div class="container mission-wrapper">
+    <div class="mission-text reveal">
+      <h2>Our Mission</h2>
+      <h3>Redefining Autonomous Space Systems</h3>
+      <p>
+        OrbitalX develops advanced artificial intelligence designed for
+        orbital infrastructure, satellites, and deep-space exploration.
+        Our mission is to create resilient, adaptive systems capable of
+        operating independently in extraterrestrial environments.
+      </p>
+      <img src="./bellergy-sci-fi-6770026_1920.jpg" alt="Mission Image" />
+    </div>
+
+    <div class="mission-card-container">
+      <div class="mission-card reveal">
+        <h4>Autonomous Navigation</h4>
+        <p>AI guidance systems optimizing orbital trajectories without ground intervention.</p>
+      </div>
+
+      <div class="mission-card reveal">
+        <h4>Orbital Intelligence</h4>
+        <p>Real-time predictive analytics for spacecraft diagnostics and safety.</p>
+      </div>
+
+      <div class="mission-card reveal">
+        <h4>Deep Space Systems</h4>
+        <p>Self-adaptive mission architecture for extreme extraterrestrial environments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="technology">
+  <div class="container">
+    <h2 class="section-title">Core Technology</h2>
+
+    <div class="tech-card-container">
+      <div class="tech-card reveal">
+        <h4>AI Flight Systems</h4>
+        <p>Machine-learning control architectures enabling autonomous course adjustment.</p>
+      </div>
+
+      <div class="tech-card reveal">
+        <h4>Quantum Data Processing</h4>
+        <p>High-efficiency orbital data processing for mission-critical analytics.</p>
+      </div>
+
+      <div class="tech-card reveal">
+        <h4>Satellite Mesh Networks</h4>
+        <p>Decentralized communication across orbital infrastructures.</p>
+      </div>
+
+      <div class="tech-card reveal">
+        <h4>Adaptive Propulsion Logic</h4>
+        <p>Smart thrust optimization systems for fuel-efficient missions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="roadmap">
+  <div class="container roadmap-wrapper">
+    <h2 class="section-title">Roadmap</h2>
+    <div class="roadmap-card reveal">
+      <h4>2024 Q3: Prototype Development</h4>
+      <p>Initial AI flight system prototypes for low Earth orbit testing.</p>
+    </div>
+
+    <div class="roadmap-card reveal">
+      <h4>2025 Q1: Orbital Testing</h4>
+      <p>Deployment of AI systems on test satellites for real-world validation.</p>
+    </div>
+
+    <div class="roadmap-card reveal">
+      <h4>2025 Q3: Deep Space Trials</h4>
+      <p>Testing adaptive systems in lunar orbit and deep space environments.</p>
+    </div>
+
+    <div class="roadmap-card reveal">
+      <h4>2026 Q1: Commercial Launch</h4>
+      <p>Full-scale deployment of OrbitalX technology for commercial space missions.</p>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const icon = document.querySelector(".fa-bars");
+  const nav = document.querySelector("nav");
+  icon.addEventListener("click", () => {
+    nav.classList.toggle("navActive");
+    if(nav.classList.contains("navActive")){
+      document.onclick = function(event) {
+        if (!nav.contains(event.target) && event.target !== icon) {
+          nav.classList.remove("navActive");
+         
+        }
+      };
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  });
+  const toggle = document.querySelector(".theme-toggle");
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
+ 
+  const reveals = document.querySelectorAll(".reveal");
+
+  function revealOnScroll() {
+    reveals.forEach(el => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const visiblePoint = 100;
+
+      if (elementTop < windowHeight - visiblePoint) {
+        el.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+
+</script>
+
+</body>
+
+</html>
